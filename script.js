@@ -93,7 +93,30 @@ const learnerSubmissions = [
       submitted_at: "2023-03-07",
       score: 140
     }
-  }
+  },
+  {
+    learner_id: 150,
+    assignment_id: 1,
+    submission: {
+      submitted_at: "2023-02-25",
+      score: 50
+    }
+  },
+  {
+    learner_id: 150,
+    assignment_id: 2,
+    submission: {
+      submitted_at: "2023-02-12",
+      score: 130
+    }
+  },
+  {
+    learner_id: 150,
+    assignment_id: 3,
+    submission: {
+      submitted_at: "2023-04-25",
+      score: 450
+    },}
 ];
 
 function getLearnerData(course, ag, submissions) {
@@ -143,7 +166,7 @@ console.log(checkLateSubmissions(learnerSubmissions, assignmentGroup));
 
 //Date checker for due date
 function checkDueDates(assignmentGroup) {
-  const unexpectedDueDate = new Date("2023-03-01");
+  const unexpectedDueDate = new Date("2023-03-26");
 
   assignmentGroup.assignments.forEach(assignment => {
     try {
@@ -294,5 +317,5 @@ function curveAssignmentByPercentage(submissions, assignmentGroup, assignIdToCur
 let assignIdToCurve = 3;
 let curvePercentage = 0.20;
 const newCurvedSubmissions = curveAssignmentByPercentage(learnerSubmissions, assignmentGroup, assignIdToCurve, curvePercentage);
-console.log(calculateAndLogAverageGrades2(newCurvedSubmissions, assignmentGroup));
+console.log(calculateAndLogAverageGrades(newCurvedSubmissions, assignmentGroup));
 //Keep getting undefined in the console, but with the proper results
