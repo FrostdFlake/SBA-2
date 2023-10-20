@@ -296,26 +296,26 @@ console.log(calculateAndLogAverageGrades(curvedSubmissions, assignmentGroup));
 
 
 
-//curve grade by percentage - Can't figure out how to reset previous curve and just run this one
-function curveAssignmentByPercentage(submissions, assignmentGroup, assignIdToCurve, curvePercentage) {
-  const newCurvedSubmissions = submissions.map(submission => {
-    let learnerId = submission.learner_id;
-    let assignmentId = submission.assignment_id;
-    let score = submission.submission.score;
-    let assignmentInfo = assignmentGroup.assignments.find(assignment => assignment.id === assignmentId);
+// //curve grade by percentage - Can't figure out how to reset previous curve and just run this one
+// function curveAssignmentByPercentage(submissions, assignmentGroup, assignIdToCurve, curvePercentage) {
+//   const newCurvedSubmissions = submissions.map(submission => {
+//     let learnerId = submission.learner_id;
+//     let assignmentId = submission.assignment_id;
+//     let score = submission.submission.score;
+//     let assignmentInfo = assignmentGroup.assignments.find(assignment => assignment.id === assignmentId);
 
-    if (assignmentId === assignIdToCurve && assignmentInfo) {
-      const curvedPercentScore = score + (score * curvePercentage);
-      submission.submission.score = Math.min(curvedPercentScore, assignmentInfo.points_possible);
-    }
+//     if (assignmentId === assignIdToCurve && assignmentInfo) {
+//       const curvedPercentScore = score + (score * curvePercentage);
+//       submission.submission.score = Math.min(curvedPercentScore, assignmentInfo.points_possible);
+//     }
 
-    return submission;
-  });
+//     return submission;
+//   });
 
-  return newCurvedSubmissions;
-}
-let assignIdToCurve = 3;
-let curvePercentage = 0.20;
-const newCurvedSubmissions = curveAssignmentByPercentage(learnerSubmissions, assignmentGroup, assignIdToCurve, curvePercentage);
-console.log(calculateAndLogAverageGrades(newCurvedSubmissions, assignmentGroup));
-//Keep getting undefined in the console, but with the proper results
+//   return newCurvedSubmissions;
+// }
+// let assignIdToCurve = 3;
+// let curvePercentage = 0.20;
+// const newCurvedSubmissions = curveAssignmentByPercentage(learnerSubmissions, assignmentGroup, assignIdToCurve, curvePercentage);
+// console.log(calculateAndLogAverageGrades(newCurvedSubmissions, assignmentGroup));
+// //Keep getting undefined in the console, but with the proper results
